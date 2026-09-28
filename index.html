@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Unir PDF Gratis – Combina varios PDF en uno sin subir archivos</title>
+  <meta name="description" content="Une varios archivos PDF en uno solo, gratis y en segundos. Tus archivos no se envían a ningún servidor: todo se procesa en tu dispositivo.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>PDF<span class="brand-accent">Gratis</span></a>
+      <nav aria-label="Herramientas">
+        <a href="index.html" aria-current="page">Unir PDF</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="tool" aria-labelledby="tool-title">
+      <h1 id="tool-title">Unir PDF gratis</h1>
+      <p class="lead">Selecciona tus archivos, ordénalos y descarga un único PDF. Sin registro y sin subir nada a internet.</p>
+
+      <ul class="chips" aria-label="Ventajas">
+        <li>Procesado en tu dispositivo</li>
+        <li>Sin registro</li>
+        <li>100% gratis</li>
+      </ul>
+
+      <noscript><p class="status error">Esta herramienta necesita JavaScript activado para funcionar.</p></noscript>
+
+      <div id="dropzone" class="dropzone">
+        <div class="dropzone-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 16V4m0 0L8 8m4-4 4 4"/>
+            <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
+          </svg>
+        </div>
+        <p class="dropzone-title">Arrastra tus PDF aquí</p>
+        <p class="dropzone-sub">o</p>
+        <button type="button" id="pick-btn" class="btn btn-primary">Seleccionar archivos PDF</button>
+        <p class="dropzone-hint">Hasta 50 archivos · 300 MB en total · Nada se sube a internet</p>
+      </div>
+      <input type="file" id="file-input" accept="application/pdf,.pdf" multiple hidden>
+
+      <div id="summary" class="summary" hidden>
+        <span id="summary-text" class="summary-text"></span>
+        <span id="summary-hint" class="summary-hint"></span>
+      </div>
+
+      <ol id="file-list" class="file-list" aria-label="Archivos seleccionados"></ol>
+
+      <div id="progress" class="progress" hidden role="progressbar" aria-label="Progreso de la unión" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <div class="actions">
+        <button type="button" id="merge-btn" class="btn btn-primary btn-large" disabled>Unir y descargar</button>
+        <button type="button" id="clear-btn" class="btn btn-secondary" disabled>Vaciar lista</button>
+      </div>
+    </section>
+
+    <section class="content" aria-labelledby="how-title">
+      <h2 id="how-title">Cómo unir archivos PDF</h2>
+      <ol>
+        <li>Pulsa <strong>Seleccionar archivos PDF</strong> o arrástralos a la zona indicada.</li>
+        <li>Ordénalos con las flechas ↑ ↓ o arrastrándolos. El PDF final respetará ese orden.</li>
+        <li>Pulsa <strong>Unir y descargar</strong>. El archivo se guarda como <em>pdf-unido.pdf</em>.</li>
+      </ol>
+
+      <h2>Privacidad</h2>
+      <p>Tus documentos nunca salen de tu dispositivo. La unión se realiza dentro de tu navegador, por lo que no se almacenan ni se envían a ningún servidor.</p>
+
+      <h2>Preguntas frecuentes</h2>
+      <h3>¿Hay límite de archivos?</h3>
+      <p>Puedes unir hasta 50 archivos con un tamaño total de hasta 300 MB. En móviles con poca memoria, los archivos muy grandes pueden tardar más.</p>
+      <h3>¿Por qué un archivo no se puede unir?</h3>
+      <p>Los PDF protegidos con contraseña o dañados no se pueden procesar. Quita la protección o usa otra copia del archivo e inténtalo de nuevo.</p>
+      <h3>¿Se mantiene la calidad?</h3>
+      <p>Sí. Las páginas se copian tal cual, sin recomprimir ni alterar su contenido.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> PDFGratis. Herramientas PDF que funcionan en tu navegador.</p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/pdf-lib.min.js"></script>
+  <script src="js/merge.js"></script>
+</body>
+</html>
